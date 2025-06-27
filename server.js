@@ -534,11 +534,9 @@ if (user.language_step === "target") {
      
     const menuTranslated = await translate(menuRaw, choice.code);
     await sendMessage(from, `${heading}\n${menuTranslated}`);
-  } else {
-    await sendMessage(
-      from,
-      "❌ Reply 1-5.\n1) English\n2) Spanish\n3) French\n4) Portuguese\n5) German"
-    );
+ } else {
+    /* Any other input: just show the welcome menu again */
+    await sendMessage(from, WELCOME_MSG);
   }
   return;
 }
